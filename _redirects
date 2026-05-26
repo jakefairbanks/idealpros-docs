@@ -1,0 +1,8 @@
+# Short aliases for the docs site.
+
+# Hail manual: let people type the short form without trailing slash
+/hail             /hail/                301
+
+# NOTE: not redirecting `/` → `/hail/` because there's a real hub page at the root.
+# If you'd rather skip the hub and send everyone straight to /hail/, uncomment:
+# /             /hail/                  302

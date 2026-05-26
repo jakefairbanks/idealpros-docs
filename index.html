@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentation — Ideal Roof &amp; Exterior Pros</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0F0F10" />
+
+  <link rel="stylesheet" href="hail/assets/brand.css" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230F0F10'/%3E%3Cpolygon points='32,12 56,32 8,32' fill='%23C9A03A'/%3E%3Crect x='12' y='32' width='40' height='24' fill='%23F4EEE3'/%3E%3Crect x='26' y='40' width='12' height='16' fill='%230F0F10'/%3E%3C/svg%3E" />
+
+  <style>
+    body {
+      min-height: 100vh;
+      margin: 0;
+      background:
+        radial-gradient(70% 60% at 90% 0%,  rgba(226,186,90,.10) 0, rgba(226,186,90,0) 60%),
+        radial-gradient(60% 60% at 0% 100%, rgba(201,160,58,.06) 0, rgba(201,160,58,0) 65%),
+        var(--bg);
+      color: var(--fg);
+      display: flex; align-items: center; justify-content: center;
+      padding: 80px 24px;
+    }
+
+    .hub {
+      width: 100%;
+      max-width: 880px;
+      text-align: left;
+    }
+
+    .hub-eyebrow {
+      display: inline-flex; align-items: center; gap: 12px;
+      font: var(--t-eyebrow);
+      letter-spacing: var(--track-eyebrow);
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 18px;
+    }
+    .hub-eyebrow::before { content: ""; width: 32px; height: 1px; background: var(--accent); }
+
+    .hub h1 {
+      font: var(--t-h2);
+      letter-spacing: var(--track-head);
+      margin: 0 0 18px;
+    }
+    .hub h1 .gg {
+      background: var(--grad-gold-deep);
+      -webkit-background-clip: text;
+      background-clip: text; color: transparent;
+    }
+    .hub > p {
+      font: 400 17px/1.55 var(--font-body);
+      color: var(--fg-muted);
+      max-width: 56ch;
+      margin: 0 0 48px;
+    }
+
+    .doc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 18px;
+    }
+
+    .doc-card {
+      display: flex; flex-direction: column;
+      padding: 28px;
+      background: var(--alpine-white);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-1);
+      color: inherit;
+      text-decoration: none;
+      transition: transform var(--dur-base) var(--ease-out),
+                  box-shadow var(--dur-base) var(--ease-out),
+                  border-color var(--dur-base) var(--ease-out);
+      position: relative; overflow: hidden;
+    }
+    .doc-card::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 4px; background: var(--accent);
+      transform: scaleY(0); transform-origin: top;
+      transition: transform var(--dur-base) var(--ease-out);
+    }
+    .doc-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-3);
+      border-color: var(--accent);
+      color: inherit;
+    }
+    .doc-card:hover::before { transform: scaleY(1); }
+
+    .doc-card .tag {
+      display: inline-block;
+      font: 700 11px/1 var(--font-display);
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding: 4px 10px;
+      background: rgba(201,160,58,.10);
+      border-radius: 999px;
+      margin-bottom: 14px;
+      align-self: flex-start;
+    }
+    .doc-card h3 {
+      font: var(--t-h4);
+      letter-spacing: var(--track-tight);
+      margin: 0 0 8px;
+    }
+    .doc-card p {
+      font: 400 14px/1.5 var(--font-body);
+      color: var(--fg-muted);
+      margin: 0 0 18px;
+    }
+    .doc-card .row {
+      display: flex; align-items: center; gap: 8px;
+      margin-top: auto;
+      font: 700 13px/1 var(--font-display);
+      letter-spacing: .02em;
+      color: var(--accent);
+    }
+    .doc-card .row svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+    .doc-card.placeholder {
+      background: transparent;
+      border-style: dashed;
+      box-shadow: none;
+      color: var(--fg-soft);
+      cursor: default;
+    }
+    .doc-card.placeholder:hover {
+      transform: none;
+      box-shadow: none;
+      border-color: var(--hairline-strong);
+    }
+    .doc-card.placeholder::before { display: none; }
+    .doc-card.placeholder .tag {
+      color: var(--fg-soft);
+      background: rgba(15,15,16,.04);
+    }
+    .doc-card.placeholder .row { color: var(--fg-soft); }
+
+    .hub-footer {
+      margin-top: 56px;
+      padding-top: 24px;
+      border-top: 1px solid var(--hairline);
+      display: flex; align-items: center; justify-content: space-between; gap: 16px;
+      font: var(--t-caption);
+      color: var(--fg-soft);
+      flex-wrap: wrap;
+    }
+    .hub-footer .brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .hub-footer .brand .mark {
+      width: 28px; height: 28px;
+    }
+    .hub-footer .brand b {
+      color: var(--fg);
+      font: 700 13px/1 var(--font-display);
+      letter-spacing: -.01em;
+    }
+  </style>
+</head>
+<body>
+  <main class="hub">
+    <span class="hub-eyebrow">Ideal Pros · Documentation</span>
+    <h1>Client manuals &amp; <span class="gg">project documentation.</span></h1>
+    <p>Internal &amp; client-facing reference materials for active and upcoming projects. Pick the manual you need below.</p>
+
+    <div class="doc-grid">
+
+      <a class="doc-card" href="hail/">
+        <span class="tag">Active</span>
+        <h3>Hail Damage Manual</h3>
+        <p>Post-inspection client manual covering damage findings, the insurance claim process, financing, production order, and project close.</p>
+        <div class="row">
+          Open manual
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </div>
+      </a>
+
+      <a class="doc-card placeholder">
+        <span class="tag">Coming soon</span>
+        <h3>Warranty &amp; Workmanship</h3>
+        <p>Your 5-year workmanship warranty and Owens Corning manufacturer coverage explained in plain language.</p>
+        <div class="row">In progress</div>
+      </a>
+
+      <a class="doc-card placeholder">
+        <span class="tag">Coming soon</span>
+        <h3>Financing Options</h3>
+        <p>How our 18-months-same-as-cash financing works and what to expect from approval to project close.</p>
+        <div class="row">In progress</div>
+      </a>
+
+    </div>
+
+    <div class="hub-footer">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <rect width="64" height="64" rx="10" fill="#0F0F10"/>
+          <polygon points="32,16 54,34 10,34" fill="#C9A03A"/>
+          <rect x="14" y="34" width="36" height="22" fill="#F4EEE3"/>
+          <rect x="27" y="42" width="10" height="14" fill="#0F0F10"/>
+        </svg>
+        <b>Ideal Roof &amp; Exterior Pros</b>
+      </div>
+      <div>© 2026 · Denver, CO · License #LIC00254349</div>
+    </div>
+  </main>
+</body>
+</html>

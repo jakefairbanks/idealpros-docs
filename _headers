@@ -1,0 +1,21 @@
+# Cache strategy for docs.myidealpros.com
+# Netlify and Cloudflare Pages both read this from the publish root.
+
+/*.html
+  Cache-Control: public, max-age=0, must-revalidate
+  X-Frame-Options: SAMEORIGIN
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+/hail/app.js
+  Cache-Control: public, max-age=300, must-revalidate
+
+/hail/styles.css
+  Cache-Control: public, max-age=300, must-revalidate
+
+/hail/assets/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/hail/assets/*.mp4
+  Cache-Control: public, max-age=2592000, immutable
+  Accept-Ranges: bytes
