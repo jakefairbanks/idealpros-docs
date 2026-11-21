@@ -26,3 +26,12 @@
 # Shared brand assets used by every page at the root
 /assets/*
   Cache-Control: public, max-age=2592000, immutable
+
+/warranty/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+/retail/_astro/*
+  Cache-Control: public, max-age=2592000, immutable
+
+/retail/images/*
+  Cache-Control: public, max-age=2592000, immutable

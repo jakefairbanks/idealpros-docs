@@ -262,7 +262,7 @@ const TIMELINE = [{
   eb: "Step 06 · Project close",
   title: "Project complete & funds released.",
   short: "Final invoice goes to the carrier, depreciation is released, warranties are filed and handed to you.",
-  detail: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Once work is signed off, we forward the final invoice and any closing paperwork to the carrier. The carrier releases the final payment (depreciation) to you, and we deliver:"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Manufacturer warranty registration (Owens Corning)."), /*#__PURE__*/React.createElement("li", null, "Our 5-year minimum workmanship warranty."), /*#__PURE__*/React.createElement("li", null, "A close-out package: final photos, invoices, scope-of-work.")))
+  detail: /*#__PURE__*/React.createElement(React.Fragment, null, /*#__PURE__*/React.createElement("p", null, "Once work is signed off, we forward the final invoice and any closing paperwork to the carrier. The carrier releases the final payment (depreciation) to you, and we deliver:"), /*#__PURE__*/React.createElement("ul", null, /*#__PURE__*/React.createElement("li", null, "Manufacturer warranty registration (Owens Corning)."), /*#__PURE__*/React.createElement("li", null, "Our 5-year workmanship warranty."), /*#__PURE__*/React.createElement("li", null, "A close-out package: final photos, invoices, scope-of-work.")))
 }];
 const DIFFERENTIATORS = [{
   n: "01",
@@ -372,7 +372,7 @@ const CREDS = [{
   num: "5",
   label: "Year workmanship warranty",
   suffix: "yr",
-  body: "Minimum on every roof. Stacked on top of the manufacturer's lifetime warranty."
+  body: "Every roof we install. Stacked on top of the Owens Corning warranty issued for your roof."
 }];
 const SECTIONS = [{
   id: "damage",

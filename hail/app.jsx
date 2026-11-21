@@ -145,7 +145,7 @@ const TIMELINE = [
         <p>Once work is signed off, we forward the final invoice and any closing paperwork to the carrier. The carrier releases the final payment (depreciation) to you, and we deliver:</p>
         <ul>
           <li>Manufacturer warranty registration (Owens Corning).</li>
-          <li>Our 5-year minimum workmanship warranty.</li>
+          <li>Our 5-year workmanship warranty.</li>
           <li>A close-out package: final photos, invoices, scope-of-work.</li>
         </ul>
       </>
@@ -205,7 +205,7 @@ const CREDS = [
 { num: "1%", label: "Owens Corning Platinum", body: "We're in the select 1% of US contractors certified at this tier." },
 { num: "750+", label: "Projects since 2019", body: "Real roofs, real Front Range homes, documented every time." },
 { num: "200+", label: "Five-star reviews", body: "Built on showing up, doing the work, cleaning up." },
-{ num: "5", label: "Year workmanship warranty", suffix: "yr", body: "Minimum on every roof. Stacked on top of the manufacturer's lifetime warranty." }];
+{ num: "5", label: "Year workmanship warranty", suffix: "yr", body: "Every roof we install. Stacked on top of the Owens Corning warranty issued for your roof." }];
 
 
 const SECTIONS = [

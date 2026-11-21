@@ -4,16 +4,25 @@ This folder (`/deploy`) is the entire `docs.myidealpros.com` site. Upload its co
 
 ```
 deploy/                          ← upload this whole folder
-├── index.html                   → docs.myidealpros.com/        (the hub)
+├── index.html                   → docs.myidealpros.com/          (the hub)
 ├── _redirects                   → short aliases (e.g. /hail)
 ├── _headers                     → caching + security headers
 ├── DEPLOY.md                    → this file
-└── hail/                        → docs.myidealpros.com/hail/   (the manual)
-    ├── index.html
-    ├── app.js                   ← pre-compiled from app.jsx for fast loads
-    ├── app.jsx                  ← editable source (kept for reference; not loaded by the page)
-    ├── styles.css
-    └── assets/                  ← photos, video, logos, brand.css
+├── assets/                      ← shared brand logos used by every page
+│   ├── logo-dark.webp           ← for light backgrounds
+│   └── logo-light.svg           ← for dark backgrounds
+├── hail/                        → docs.myidealpros.com/hail/     (client manual)
+│   ├── index.html
+│   ├── app.js                   ← pre-compiled from app.jsx for fast loads
+│   ├── app.jsx                  ← editable source (kept for reference; not loaded by the page)
+│   ├── styles.css
+│   └── assets/                  ← photos, video, brand.css
+├── retail/                      → docs.myidealpros.com/retail/   (client manual)
+│   └── …                        ← BUILD OUTPUT — see "Updating the retail manual"
+├── handoff/                     → docs.myidealpros.com/handoff/  (internal, sales reps)
+│   └── index.html
+└── warranty/                    → docs.myidealpros.com/warranty/ (internal, sales reps)
+    └── index.html
 ```
 
 Your reps will share **`https://docs.myidealpros.com/hail`** with homeowners.
@@ -55,10 +64,13 @@ DNS propagation usually completes in a few minutes; rarely up to an hour. If the
 
 ## What's at each URL
 
-| URL                                              | What it is                                           |
-|--------------------------------------------------|------------------------------------------------------|
-| `https://docs.myidealpros.com/`                  | Docs hub — landing page that links to your manuals   |
-| `https://docs.myidealpros.com/hail`              | The Hail Damage Client Manual (your sales tool)      |
+| URL                                              | What it is                                           | Audience   |
+|--------------------------------------------------|------------------------------------------------------|------------|
+| `https://docs.myidealpros.com/`                  | Docs hub — landing page that links to your manuals   | Everyone   |
+| `https://docs.myidealpros.com/hail`              | The Hail Damage Client Manual (your sales tool)      | Homeowners |
+| `https://docs.myidealpros.com/retail`            | The Retail Roof Client Manual                        | Homeowners |
+| `https://docs.myidealpros.com/handoff`           | Sales to Production Handoff checklist                | Sales reps |
+| `https://docs.myidealpros.com/warranty`          | Warranty Guide — Ideal + Owens Corning quick ref     | Sales reps |
 
 The hail manual is **one-size-fits-all** — same page every homeowner sees, walked through after their inspection. Personalization (homeowner name, claim #, etc.) lives in your separate inspection report, not here.
 
@@ -72,6 +84,33 @@ The docs hub at `/` already shows the Hail manual plus two dashed placeholders (
 2. Open `/deploy/index.html` and turn the matching "Coming soon" placeholder into a real `<a class="doc-card" href="warranty/">` card
 3. (Optional) add a short alias in `/deploy/_redirects` following the `/hail` pattern
 4. Re-deploy
+
+---
+
+## Updating the retail manual later
+
+`/deploy/retail/` is **build output**, not editable source. The source is a separate
+Astro project at `~/docs.myidealpros/Client Manuals`. To change it:
+
+```bash
+cd ~/docs.myidealpros/"Client Manuals"
+# edit src/data/manual.ts (all copy lives there)
+npm run build
+rsync -a --delete dist/ ~/"Finders Meeting Client Manual"/deploy/retail/
+```
+
+Then re-deploy `/deploy` as usual.
+
+Two things that project is configured for and that must stay that way, or assets
+will 404 once it's served from a subfolder:
+
+- `astro.config.mjs` sets `base: "/retail"`.
+- Files in `public/` are referenced through `src/lib/asset.ts`, never as
+  hardcoded `/images/...` paths.
+
+Note: `src/data/manual.ts` references `images/team-christina.jpg` and
+`images/team-aaron.jpg`, which aren't in `public/images/` — the Team section
+falls back to initials until those headshots are added.
 
 ---
 
