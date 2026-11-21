@@ -22,7 +22,7 @@ body { background: var(--cream-stone); }
   display: flex; align-items: center; justify-content: space-between;
   height: 64px; gap: 24px;
 }
-.topbar-logo { height: 28px; width: auto; display: block; }
+.topbar-logo { height: 40px; width: auto; display: block; }
 .topbar-nav { display: flex; gap: 4px; font: var(--t-body-s); }
 .topbar-nav button {
   appearance: none; background: none; border: 0; cursor: pointer;
@@ -856,7 +856,7 @@ section.scene.cream-deep { background: #EFE7D6; }
   padding: 48px 0 32px;
 }
 .page-footer .row { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
-.page-footer .logo-mark { height: 32px; opacity: .8; }
+.page-footer .logo-mark { height: 46px; opacity: .8; }
 .page-footer p { color: rgba(244, 238, 227, .55); margin: 0; font: var(--t-body-s); }
 .page-footer .lic { font-family: var(--font-mono); font-size: 12px; }
 

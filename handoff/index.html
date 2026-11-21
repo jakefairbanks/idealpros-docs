@@ -29,14 +29,19 @@
     }
     .topbar-inner {
       display: flex; align-items: center; justify-content: space-between;
-      height: 56px; gap: 16px;
+      height: 64px; gap: 16px;
     }
-    .topbar-brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
-    .topbar-brand .mark { width: 26px; height: 26px; flex: none; }
+    .topbar-brand { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .topbar-brand .topbar-logo { height: 40px; width: auto; display: block; flex: none; }
     .topbar-brand b {
       font: 700 13px/1 var(--font-display); letter-spacing: -.01em; color: var(--fg);
       white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      padding-left: 12px; border-left: 1px solid var(--hairline-strong);
     }
+    /* The logo plus the page name plus the back link won't fit a phone —
+       the h1 directly below names the page anyway. */
+    @media (max-width: 559px) { .topbar-brand b { display: none; } }
+    @media (min-width: 801px) { .topbar-brand .topbar-logo { height: 40px; } }
     .topbar-back {
       display: inline-flex; align-items: center; gap: 7px;
       font: 600 13px/1 var(--font-display); color: var(--fg-muted);
@@ -275,8 +280,7 @@
       font: var(--t-caption);
     }
     .page-footer .brand { display: flex; align-items: center; gap: 10px; }
-    .page-footer .brand .mark { width: 28px; height: 28px; }
-    .page-footer .brand b { color: var(--cream-stone); font: 700 13px/1 var(--font-display); letter-spacing: -.01em; }
+    .page-footer .brand .foot-logo { height: 46px; width: auto; display: block; opacity: .92; }
     .page-footer .lic { font-family: var(--font-mono); font-size: 12px; }
 
     @media print {
@@ -293,12 +297,7 @@
   <header class="topbar">
     <div class="page-wrap topbar-inner">
       <div class="topbar-brand">
-        <svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="64" height="64" rx="10" fill="#0F0F10"/>
-          <polygon points="32,16 54,34 10,34" fill="#C9A03A"/>
-          <rect x="14" y="34" width="36" height="22" fill="#F4EEE3"/>
-          <rect x="27" y="42" width="10" height="14" fill="#0F0F10"/>
-        </svg>
+        <a href="../"><img class="topbar-logo" src="../assets/logo-dark.webp" alt="Ideal Roof &amp; Exterior Pros" width="2170" height="1115" /></a>
         <b>Sales to Production Handoff</b>
       </div>
       <a class="topbar-back" href="../">
@@ -415,13 +414,7 @@
   <footer class="page-footer">
     <div class="page-wrap row">
       <div class="brand">
-        <svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-          <rect width="64" height="64" rx="10" fill="#0F0F10"/>
-          <polygon points="32,16 54,34 10,34" fill="#C9A03A"/>
-          <rect x="14" y="34" width="36" height="22" fill="#F4EEE3"/>
-          <rect x="27" y="42" width="10" height="14" fill="#0F0F10"/>
-        </svg>
-        <b>Ideal Roof &amp; Exterior Pros</b>
+        <img class="foot-logo" src="../assets/logo-light.svg" alt="Ideal Roof &amp; Exterior Pros" width="2112" height="1016" />
       </div>
       <div class="lic">© 2026 · Denver, CO · License #LIC00254349</div>
     </div>

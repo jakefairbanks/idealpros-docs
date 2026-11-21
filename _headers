@@ -22,3 +22,7 @@
 
 /handoff/index.html
   Cache-Control: public, max-age=0, must-revalidate
+
+# Shared brand assets used by every page at the root
+/assets/*
+  Cache-Control: public, max-age=2592000, immutable

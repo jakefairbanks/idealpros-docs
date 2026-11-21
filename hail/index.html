@@ -37,11 +37,7 @@
       transition: opacity .4s ease;
     }
     #__app_loading.fading { opacity: 0; pointer-events: none; }
-    #__app_loading .mark { width: 64px; height: 64px; }
-    #__app_loading .lbl {
-      font: 600 11px/1 -apple-system, BlinkMacSystemFont, "Inter", sans-serif;
-      letter-spacing: 3px; color: #C9A03A; text-transform: uppercase;
-    }
+    #__app_loading .mark { width: 220px; max-width: 62vw; height: auto; display: block; }
     #__app_loading .bar {
       width: 180px; height: 2px;
       background: rgba(244,238,227,.1);
@@ -61,12 +57,7 @@
 </head>
 <body>
   <div id="__app_loading" aria-hidden="true">
-    <svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-      <polygon points="32,12 56,32 8,32" fill="#C9A03A"/>
-      <rect x="12" y="32" width="40" height="24" fill="#F4EEE3"/>
-      <rect x="26" y="40" width="12" height="16" fill="#0F0F10"/>
-    </svg>
-    <div class="lbl">Ideal Roof &amp; Exterior Pros</div>
+    <img class="mark" src="../assets/logo-light.svg" alt="Ideal Roof &amp; Exterior Pros" width="2112" height="1016" />
     <div class="bar" role="progressbar" aria-label="Loading"></div>
   </div>
 

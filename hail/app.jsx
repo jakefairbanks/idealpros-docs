@@ -226,7 +226,7 @@ function TopBar({ activeId, onJump }) {
     <header className="topbar">
       <div className="page-wrap topbar-inner">
         <a href="#top" onClick={(e) => {e.preventDefault();window.scrollTo({ top: 0, behavior: "smooth" });}} aria-label="Ideal Roof &amp; Exterior Pros">
-          <img src="assets/logo-black.png" alt="Ideal Roof &amp; Exterior Pros" className="topbar-logo" />
+          <img src="../assets/logo-dark.webp" alt="Ideal Roof &amp; Exterior Pros" className="topbar-logo" />
         </a>
         <nav className="topbar-nav" aria-label="Manual sections">
           {SECTIONS.map((s) =>
@@ -856,7 +856,7 @@ function PageFooter() {
   return (
     <footer className="page-footer">
       <div className="page-wrap row">
-        <img src="assets/logo-primary.png" alt="Ideal Pros" className="logo-mark" />
+        <img src="../assets/logo-light.svg" alt="Ideal Pros" className="logo-mark" />
         <p>© 2026 Ideal Roof &amp; Exterior Pros · Denver, Colorado</p>
         <p className="lic">License #LIC00254349</p>
       </div>

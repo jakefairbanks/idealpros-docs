@@ -30,6 +30,12 @@
       text-align: left;
     }
 
+    .hub-logo {
+      height: 76px; width: auto; display: block;
+      margin-bottom: 32px;
+    }
+    @media (min-width: 701px) { .hub-logo { height: 92px; margin-bottom: 40px; } }
+
     .hub-eyebrow {
       display: inline-flex; align-items: center; gap: 12px;
       font: var(--t-eyebrow);
@@ -153,18 +159,14 @@
     .hub-footer .brand {
       display: flex; align-items: center; gap: 10px;
     }
-    .hub-footer .brand .mark {
-      width: 28px; height: 28px;
-    }
-    .hub-footer .brand b {
-      color: var(--fg);
-      font: 700 13px/1 var(--font-display);
-      letter-spacing: -.01em;
+    .hub-footer .brand .foot-logo {
+      height: 44px; width: auto; display: block;
     }
   </style>
 </head>
 <body>
   <main class="hub">
+    <img class="hub-logo" src="assets/logo-dark.webp" alt="Ideal Roof &amp; Exterior Pros" width="2170" height="1115" />
     <span class="hub-eyebrow">Ideal Pros · Documentation</span>
     <h1>Client manuals &amp; <span class="gg">project documentation.</span></h1>
     <p>Internal &amp; client-facing reference materials for active and upcoming projects. Pick the manual you need below.</p>
@@ -209,13 +211,7 @@
 
     <div class="hub-footer">
       <div class="brand">
-        <svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-          <rect width="64" height="64" rx="10" fill="#0F0F10"/>
-          <polygon points="32,16 54,34 10,34" fill="#C9A03A"/>
-          <rect x="14" y="34" width="36" height="22" fill="#F4EEE3"/>
-          <rect x="27" y="42" width="10" height="14" fill="#0F0F10"/>
-        </svg>
-        <b>Ideal Roof &amp; Exterior Pros</b>
+        <img class="foot-logo" src="assets/logo-dark.webp" alt="Ideal Roof &amp; Exterior Pros" width="2170" height="1115" />
       </div>
       <div>© 2026 · Denver, CO · License #LIC00254349</div>
     </div>

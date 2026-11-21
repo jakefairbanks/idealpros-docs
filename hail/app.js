@@ -419,7 +419,7 @@ function TopBar({
     },
     "aria-label": "Ideal Roof & Exterior Pros"
   }, /*#__PURE__*/React.createElement("img", {
-    src: "assets/logo-black.png",
+    src: "../assets/logo-dark.webp",
     alt: "Ideal Roof & Exterior Pros",
     className: "topbar-logo"
   })), /*#__PURE__*/React.createElement("nav", {
@@ -1302,7 +1302,7 @@ function PageFooter() {
   }, /*#__PURE__*/React.createElement("div", {
     className: "page-wrap row"
   }, /*#__PURE__*/React.createElement("img", {
-    src: "assets/logo-primary.png",
+    src: "../assets/logo-light.svg",
     alt: "Ideal Pros",
     className: "logo-mark"
   }), /*#__PURE__*/React.createElement("p", null, "\xA9 2026 Ideal Roof & Exterior Pros \xB7 Denver, Colorado"), /*#__PURE__*/React.createElement("p", {
