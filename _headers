@@ -19,3 +19,6 @@
 /hail/assets/*.mp4
   Cache-Control: public, max-age=2592000, immutable
   Accept-Ranges: bytes
+
+/handoff/index.html
+  Cache-Control: public, max-age=0, must-revalidate

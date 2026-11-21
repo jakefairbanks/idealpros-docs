@@ -6,3 +6,6 @@
 # NOTE: not redirecting `/` → `/hail/` because there's a real hub page at the root.
 # If you'd rather skip the hub and send everyone straight to /hail/, uncomment:
 # /             /hail/                  302
+
+# Handoff checklist (internal, for sales reps)
+/handoff          /handoff/             301

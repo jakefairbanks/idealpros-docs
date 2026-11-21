@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sales to Production Handoff — Ideal Roof &amp; Exterior Pros</title>
+  <meta name="robots" content="noindex" />
+  <meta name="theme-color" content="#0F0F10" />
+  <meta name="description" content="Internal checklist for Ideal Roof &amp; Exterior Pros sales reps: what the office needs in JobNimbus before a job can move into production." />
+
+  <link rel="stylesheet" href="../hail/assets/brand.css" />
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230F0F10'/%3E%3Cpolygon points='32,12 56,32 8,32' fill='%23C9A03A'/%3E%3Crect x='12' y='32' width='40' height='24' fill='%23F4EEE3'/%3E%3Crect x='26' y='40' width='12' height='16' fill='%230F0F10'/%3E%3C/svg%3E" />
+
+  <style>
+    html { scroll-behavior: smooth; }
+    body { background: var(--bg); color: var(--fg); }
+
+    .page-wrap { max-width: 760px; margin: 0 auto; padding: 0 24px; }
+    @media (min-width: 801px) { .page-wrap { padding: 0 40px; } }
+
+    /* ---------- Sticky top bar (matches the manual's topbar) ---------- */
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(244, 238, 227, 0.92);
+      backdrop-filter: blur(14px) saturate(180%);
+      -webkit-backdrop-filter: blur(14px) saturate(180%);
+      border-bottom: 1px solid var(--hairline);
+    }
+    .topbar-inner {
+      display: flex; align-items: center; justify-content: space-between;
+      height: 56px; gap: 16px;
+    }
+    .topbar-brand { display: flex; align-items: center; gap: 10px; min-width: 0; }
+    .topbar-brand .mark { width: 26px; height: 26px; flex: none; }
+    .topbar-brand b {
+      font: 700 13px/1 var(--font-display); letter-spacing: -.01em; color: var(--fg);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .topbar-back {
+      display: inline-flex; align-items: center; gap: 7px;
+      font: 600 13px/1 var(--font-display); color: var(--fg-muted);
+      padding: 10px 4px; white-space: nowrap;
+      transition: color var(--dur-base) var(--ease-out);
+    }
+    .topbar-back:hover { color: var(--accent); }
+    .topbar-back svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ---------- Head ---------- */
+    .head { padding-top: 36px; }
+    @media (min-width: 801px) { .head { padding-top: 56px; } }
+
+    .head .eyebrow-row {
+      display: inline-flex; align-items: center; gap: 12px;
+      font: var(--t-eyebrow); letter-spacing: var(--track-eyebrow); text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+    }
+    .head .eyebrow-row::before { content: ""; width: 28px; height: 1px; background: var(--accent); }
+
+    .head h1 {
+      font: 900 clamp(32px, 8vw, 52px)/1.03 var(--font-display);
+      letter-spacing: var(--track-head);
+      margin: 0 0 14px; text-wrap: balance;
+    }
+    .head h1 .gg {
+      background: var(--grad-gold-deep);
+      -webkit-background-clip: text; background-clip: text; color: transparent;
+    }
+    .head > p.sub {
+      font: 400 16px/1.5 var(--font-body);
+      color: var(--fg-muted); max-width: 52ch; margin: 0 0 24px;
+    }
+
+    /* ---------- Policy (prominent, directly under the title) ---------- */
+    .policy {
+      background: var(--onyx); color: var(--cream-stone);
+      border-radius: var(--radius-lg);
+      padding: 24px 22px 24px 26px;
+      position: relative; overflow: hidden;
+      box-shadow: var(--shadow-3);
+    }
+    @media (min-width: 801px) { .policy { padding: 32px 36px 32px 40px; } }
+    .policy::before {
+      content: ""; position: absolute; left: 0; top: 0; bottom: 0;
+      width: 5px; background: var(--grad-gold);
+    }
+    .policy::after {
+      content: ""; position: absolute; right: -90px; top: -110px;
+      width: 300px; height: 300px; border-radius: 999px;
+      background: radial-gradient(circle, rgba(226,186,90,.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .policy .lbl {
+      position: relative; z-index: 1;
+      display: block;
+      font: 700 11px/1 var(--font-display); letter-spacing: .22em; text-transform: uppercase;
+      color: var(--burnished-gold); margin-bottom: 14px;
+    }
+    .policy p {
+      position: relative; z-index: 1;
+      font: 600 clamp(16px, 4.2vw, 20px)/1.45 var(--font-body);
+      color: var(--cream-stone); margin: 0; max-width: 54ch;
+    }
+
+    /* ---------- Project type selector ---------- */
+    .picker { margin-top: 28px; }
+    .picker .lbl {
+      display: block;
+      font: var(--t-label); letter-spacing: var(--track-label); text-transform: uppercase;
+      color: var(--accent); margin-bottom: 12px;
+    }
+    .seg {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    }
+    .seg button {
+      appearance: none; cursor: pointer;
+      min-height: 60px; padding: 14px 16px;
+      background: var(--alpine-white);
+      border: 1px solid var(--hairline-strong);
+      border-radius: var(--radius-md);
+      font: 700 15px/1.2 var(--font-display); letter-spacing: -.01em;
+      color: var(--fg-muted);
+      display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 5px;
+      transition: all var(--dur-base) var(--ease-out);
+      text-align: center;
+    }
+    .seg button .n {
+      font: 700 10px/1 var(--font-display); letter-spacing: .14em; text-transform: uppercase;
+      color: var(--fg-soft); flex: none;
+    }
+    .seg button:hover { border-color: var(--accent); color: var(--fg); }
+    .seg button[aria-pressed="true"] {
+      background: var(--grad-gold-deep); color: var(--onyx);
+      border-color: transparent; box-shadow: var(--shadow-gold);
+    }
+    .seg button[aria-pressed="true"] .n { color: rgba(15,15,16,.62); }
+
+    /* ---------- Checklist ---------- */
+    .list-head {
+      display: flex; align-items: baseline; justify-content: space-between;
+      gap: 14px; flex-wrap: wrap;
+      margin: 32px 0 14px;
+    }
+    .list-head .eyebrow-num {
+      display: inline-flex; align-items: center; gap: 10px;
+      font: var(--t-eyebrow); letter-spacing: var(--track-eyebrow); text-transform: uppercase;
+      color: var(--accent); margin: 0;
+    }
+    .list-head .eyebrow-num .dot { width: 6px; height: 6px; border-radius: 999px; background: var(--accent); flex: none; }
+
+    .progress {
+      display: inline-flex; align-items: center; gap: 8px;
+      font: 700 12px/1 var(--font-display); letter-spacing: .1em; text-transform: uppercase;
+      color: var(--fg-soft);
+      background: rgba(15,15,16,.05);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-pill);
+      padding: 9px 14px;
+      transition: all var(--dur-base) var(--ease-out);
+    }
+    .progress.done {
+      background: var(--grad-gold-deep); color: var(--onyx);
+      border-color: transparent; box-shadow: var(--shadow-gold);
+    }
+    .progress svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2.6; stroke-linecap: round; stroke-linejoin: round; display: none; }
+    .progress.done svg { display: block; }
+
+    .items { display: grid; gap: 10px; }
+
+    .item {
+      display: grid; grid-template-columns: 28px 1fr; gap: 14px;
+      align-items: start;
+      background: var(--alpine-white);
+      border: 1px solid var(--hairline);
+      border-radius: var(--radius-md);
+      box-shadow: var(--shadow-1);
+      padding: 18px 18px 18px 16px;
+      cursor: pointer;
+      transition: border-color var(--dur-base) var(--ease-out), box-shadow var(--dur-base) var(--ease-out), background var(--dur-base) var(--ease-out);
+      -webkit-tap-highlight-color: transparent;
+    }
+    @media (min-width: 801px) { .item { padding: 20px 24px 20px 20px; gap: 16px; } }
+    .item:hover { border-color: var(--hairline-strong); box-shadow: var(--shadow-2); }
+    .item:has(input:checked) { background: #FCF8EF; border-color: rgba(201,160,58,.45); }
+    .item:has(input:focus-visible) { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+    .item input {
+      appearance: none; -webkit-appearance: none; margin: 0;
+      width: 28px; height: 28px; flex: none;
+      border: 2px solid var(--hairline-strong);
+      border-radius: 8px;
+      background: var(--alpine-white);
+      cursor: pointer; position: relative;
+      transition: all var(--dur-fast) var(--ease-out);
+    }
+    .item input:checked {
+      background: var(--grad-gold-deep); border-color: transparent;
+    }
+    .item input:checked::after {
+      content: ""; position: absolute;
+      left: 7px; top: 3px; width: 9px; height: 15px;
+      border-right: 2.6px solid var(--onyx);
+      border-bottom: 2.6px solid var(--onyx);
+      transform: rotate(40deg);
+    }
+
+    .item h3 {
+      font: 700 clamp(16px, 4.3vw, 19px)/1.3 var(--font-display);
+      letter-spacing: var(--track-tight);
+      margin: 2px 0 7px; color: var(--fg);
+    }
+    .item p {
+      font: 400 15px/1.55 var(--font-body);
+      color: var(--fg-muted); margin: 0; max-width: 62ch;
+    }
+    .item .note {
+      display: block; margin-top: 9px;
+      font: var(--t-body-s); color: var(--fg-soft);
+    }
+    .item .note b { color: var(--graphite); font-weight: 600; }
+
+    /* ---------- Self-check caption + reset ---------- */
+    .list-foot {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 14px; flex-wrap: wrap;
+      margin-top: 16px;
+    }
+    .list-foot .cap {
+      font: var(--t-body-s); color: var(--fg-soft); margin: 0; max-width: 46ch;
+    }
+    .reset {
+      appearance: none; cursor: pointer;
+      background: transparent; color: var(--graphite);
+      border: 1px solid var(--hairline-strong);
+      border-radius: var(--radius-pill);
+      min-height: 44px; padding: 12px 20px;
+      font: var(--t-cta); letter-spacing: -.005em;
+      display: inline-flex; align-items: center; gap: 8px;
+      transition: all var(--dur-base) var(--ease-out);
+      white-space: nowrap;
+    }
+    .reset:hover { background: rgba(15,15,16,.04); color: var(--onyx); border-color: var(--accent); }
+    .reset:active { transform: scale(.97); }
+    .reset svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.2; stroke-linecap: round; stroke-linejoin: round; }
+
+    /* ---------- Incomplete note ---------- */
+    .incomplete {
+      margin-top: 26px;
+      background: var(--cream-stone);
+      border: 1px solid var(--hairline-strong);
+      border-left: 4px solid var(--accent);
+      border-radius: var(--radius-md);
+      padding: 22px 22px;
+    }
+    @media (min-width: 801px) { .incomplete { padding: 26px 28px; } }
+    .incomplete h2 {
+      font: 700 clamp(17px, 4.4vw, 21px)/1.25 var(--font-display);
+      letter-spacing: var(--track-tight);
+      margin: 0 0 10px; color: var(--fg);
+    }
+    .incomplete p {
+      font: 400 15px/1.6 var(--font-body);
+      color: var(--fg-muted); margin: 0; max-width: 64ch;
+    }
+
+    /* ---------- Footer ---------- */
+    .page-footer {
+      margin-top: 56px;
+      background: var(--onyx); color: rgba(244,238,227,.55);
+      padding: 36px 0 32px;
+    }
+    .page-footer .row {
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px; flex-wrap: wrap;
+      font: var(--t-caption);
+    }
+    .page-footer .brand { display: flex; align-items: center; gap: 10px; }
+    .page-footer .brand .mark { width: 28px; height: 28px; }
+    .page-footer .brand b { color: var(--cream-stone); font: 700 13px/1 var(--font-display); letter-spacing: -.01em; }
+    .page-footer .lic { font-family: var(--font-mono); font-size: 12px; }
+
+    @media print {
+      .topbar, .reset, .seg { display: none !important; }
+      .policy { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+      .hidden { display: block !important; }
+    }
+
+    .hidden { display: none; }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="page-wrap topbar-inner">
+      <div class="topbar-brand">
+        <svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="64" height="64" rx="10" fill="#0F0F10"/>
+          <polygon points="32,16 54,34 10,34" fill="#C9A03A"/>
+          <rect x="14" y="34" width="36" height="22" fill="#F4EEE3"/>
+          <rect x="27" y="42" width="10" height="14" fill="#0F0F10"/>
+        </svg>
+        <b>Sales to Production Handoff</b>
+      </div>
+      <a class="topbar-back" href="../">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+        All docs
+      </a>
+    </div>
+  </header>
+
+  <main>
+    <div class="page-wrap head">
+      <span class="eyebrow-row">Ideal Pros · For Sales Reps</span>
+      <h1>Sales to Production <span class="gg">Handoff.</span></h1>
+      <p class="sub">What the office needs from you before a job can be released to production — and what happens if it's missing.</p>
+
+      <section class="policy" aria-labelledby="policy-lbl">
+        <span class="lbl" id="policy-lbl">Policy</span>
+        <p>A job can move into production only after every required checklist item is complete and uploaded to the correct job in JobNimbus. Commission is paid only after the job has moved into production.</p>
+      </section>
+
+      <section class="picker" aria-labelledby="picker-lbl">
+        <span class="lbl" id="picker-lbl">Project type</span>
+        <div class="seg" role="group" aria-labelledby="picker-lbl">
+          <button type="button" id="btn-insurance" data-type="insurance" aria-pressed="true" aria-controls="list-insurance">
+            Insurance project <span class="n">4 items</span>
+          </button>
+          <button type="button" id="btn-retail" data-type="retail" aria-pressed="false" aria-controls="list-retail">
+            Retail project <span class="n">2 items</span>
+          </button>
+        </div>
+      </section>
+
+      <div class="list-head">
+        <span class="eyebrow-num"><span class="dot"></span>What the office needs</span>
+        <span class="progress" id="progress" role="status" aria-live="polite">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+          <span id="progress-text">0 of 4 checked</span>
+        </span>
+      </div>
+
+      <!-- ============ INSURANCE ============ -->
+      <section class="items" id="list-insurance" data-list="insurance" aria-label="Insurance project checklist">
+
+        <label class="item">
+          <input type="checkbox" />
+          <div>
+            <h3>Complete the CompanyCam photo checklist</h3>
+            <p>Open the CompanyCam project from the JobNimbus record and verify that every photo required by our existing checklist is present. The office uses these photos to document site conditions and support supplement requests. A missing view can mean another trip to the property.</p>
+          </div>
+        </label>
+
+        <label class="item">
+          <input type="checkbox" />
+          <div>
+            <h3>Review and upload the signed Insurance Claim Scope Agreement</h3>
+            <p>Read the entire agreement once before uploading it. Confirm that every required field is filled in, names and addresses are spelled correctly, written entries use correct grammar, and all contract values are entered accurately. Check every required signature and initial, including those on earlier pages. The office relies on this agreement to confirm exactly what the homeowner authorized.</p>
+          </div>
+        </label>
+
+        <label class="item">
+          <input type="checkbox" />
+          <div>
+            <h3>Upload the initial Statement of Loss</h3>
+            <p>Attach a complete, readable copy of the carrier's initial Statement of Loss to the job. This gives the office the original scope and pricing to compare against when reviewing supplements.</p>
+          </div>
+        </label>
+
+        <label class="item">
+          <input type="checkbox" />
+          <div>
+            <h3>Upload the Hover or EagleView report</h3>
+            <p>Attach the measurement report for the correct property. Either Hover or EagleView satisfies this requirement. If both were obtained for the job, upload both. Production uses these measurements to plan quantities and order materials.</p>
+          </div>
+        </label>
+
+      </section>
+
+      <!-- ============ RETAIL ============ -->
+      <section class="items hidden" id="list-retail" data-list="retail" aria-label="Retail project checklist">
+
+        <label class="item">
+          <input type="checkbox" />
+          <div>
+            <h3>Verify the CompanyCam photos are complete and organized</h3>
+            <p>Open the photos from the JobNimbus record and look at them from the production team's perspective. Can they identify each work area, see the existing conditions, and understand what was sold? Organize the photos so the team can answer those questions without calling the rep.</p>
+          </div>
+        </label>
+
+        <label class="item">
+          <input type="checkbox" />
+          <div>
+            <h3>Upload the signed contract with colors selected</h3>
+            <p>Confirm the homeowner signed the contract and that the selected colors are clearly recorded for each applicable part of the project. Production should be able to tell exactly what to order from the signed paperwork. A blank color or "TBD" leaves this item incomplete.</p>
+          </div>
+        </label>
+
+      </section>
+
+      <div class="list-foot">
+        <p class="cap">This is your own self-check. Checking a box here does not change a JobNimbus status, submit the job, or mean the office has approved it.</p>
+        <button type="button" class="reset" id="reset">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+          Reset checklist
+        </button>
+      </div>
+
+      <section class="incomplete" aria-labelledby="incomplete-h">
+        <h2 id="incomplete-h">If the file is incomplete</h2>
+        <p>The office will return the job to the salesperson with the items that need correction. Update the JobNimbus record and send it back for review. The job stays out of production, and commission stays on hold, until the handoff is complete and the job has moved into production.</p>
+      </section>
+    </div>
+  </main>
+
+  <footer class="page-footer">
+    <div class="page-wrap row">
+      <div class="brand">
+        <svg class="mark" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <rect width="64" height="64" rx="10" fill="#0F0F10"/>
+          <polygon points="32,16 54,34 10,34" fill="#C9A03A"/>
+          <rect x="14" y="34" width="36" height="22" fill="#F4EEE3"/>
+          <rect x="27" y="42" width="10" height="14" fill="#0F0F10"/>
+        </svg>
+        <b>Ideal Roof &amp; Exterior Pros</b>
+      </div>
+      <div class="lic">© 2026 · Denver, CO · License #LIC00254349</div>
+    </div>
+  </footer>
+
+  <script>
+    (function () {
+      var lists = {
+        insurance: document.getElementById('list-insurance'),
+        retail: document.getElementById('list-retail')
+      };
+      var buttons = Array.prototype.slice.call(document.querySelectorAll('.seg button'));
+      var progress = document.getElementById('progress');
+      var progressText = document.getElementById('progress-text');
+      var active = 'insurance';
+
+      // Every visit starts clean — nothing is persisted, and Safari/Firefox
+      // form restoration on back/reload is cleared explicitly.
+      function clearList(name) {
+        var boxes = lists[name].querySelectorAll('input[type="checkbox"]');
+        for (var i = 0; i < boxes.length; i++) boxes[i].checked = false;
+      }
+
+      function render() {
+        var boxes = lists[active].querySelectorAll('input[type="checkbox"]');
+        var total = boxes.length;
+        var done = 0;
+        for (var i = 0; i < boxes.length; i++) if (boxes[i].checked) done++;
+
+        if (total > 0 && done === total) {
+          progress.classList.add('done');
+          progressText.textContent = 'Ready for office review';
+        } else {
+          progress.classList.remove('done');
+          progressText.textContent = done + ' of ' + total + ' checked';
+        }
+      }
+
+      function select(name) {
+        active = name;
+        for (var key in lists) {
+          if (Object.prototype.hasOwnProperty.call(lists, key)) {
+            lists[key].classList.toggle('hidden', key !== name);
+          }
+        }
+        buttons.forEach(function (b) {
+          b.setAttribute('aria-pressed', String(b.getAttribute('data-type') === name));
+        });
+        render();
+      }
+
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () { select(b.getAttribute('data-type')); });
+      });
+
+      document.addEventListener('change', function (e) {
+        if (e.target && e.target.type === 'checkbox') render();
+      });
+
+      document.getElementById('reset').addEventListener('click', function () {
+        clearList('insurance');
+        clearList('retail');
+        render();
+      });
+
+      clearList('insurance');
+      clearList('retail');
+      select('insurance');
+    })();
+  </script>
+</body>
+</html>
